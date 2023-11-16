@@ -19,7 +19,7 @@ const [selectedPokemon, setSelectedPokemon] = useState(null);
       {!selectedPokemon ? 
       <PokeList selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon}/>
       :
-      <PokeDetailView selectedPokemon={selectedPokemon} />
+      <PokeDetailView selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon}/>
     
       }
 
