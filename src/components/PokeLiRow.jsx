@@ -1,6 +1,11 @@
-const PokeLiRow = ({eachPokemon}) => {
+const PokeLiRow = ({ eachPokemon, setSelectedPokemon }) => {
   return (
-    <li>
+    <li onClick={
+      () => {
+        setSelectedPokemon(eachPokemon.name);
+        console.log(`you clicked ${eachPokemon.name}`)
+      }
+    }>
       {eachPokemon.name}
     </li>
   )

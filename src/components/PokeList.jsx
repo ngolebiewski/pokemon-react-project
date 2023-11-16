@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import PokeLiRow from "./PokeLiRow";
 
 
-
 const dummyPokemonList = [
   {
     name: "spearow",
@@ -25,17 +24,21 @@ const dummyPokemonList = [
 //display Pokemon in List
 //pass pokemon Props down to PokeLiRow to fill in the unordered list.
 
-const PokeList = () => {
-  const [pokemonList, setPokemonList] = useState(dummyPokemonList)
+const PokeList = ({ selectedPokemon, setSelectedPokemon }) => {
+  const [pokemonList, setPokemonList] = useState([])
 
   useEffect(() => {
-    const fetchPokemonList = async () => { 
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=25&limit=25');
-      const data = await response.json();
-      setPokemonList(data.results);
+    try {
+      const fetchPokemonList = async () => {
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=25&limit=25');
+        const data = await response.json();
+        setPokemonList(data.results);
+      }
+      fetchPokemonList();
     }
-    fetchPokemonList();
-    console.log(pokemonList)
+    catch (error) {
+      console.log(`Sorry, no Pokemon here, download PokemonGO and enjoy AR instead.`)
+    }
   }, [])
 
   return (
@@ -44,7 +47,9 @@ const PokeList = () => {
       <ul>
         {
           pokemonList.map((eachPokemon) => {
-            return <PokeLiRow key={eachPokemon.name} eachPokemon={eachPokemon} />
+            return <PokeLiRow key={eachPokemon.name}
+              eachPokemon={eachPokemon}
+              setSelectedPokemon={setSelectedPokemon} />
           })
         }
       </ul>

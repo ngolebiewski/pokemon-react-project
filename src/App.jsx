@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import PokeList from './components/PokeList.jsx'
+import PokeDetailView from './components/PokeDetailView'
 
 /*
 Here are the instructions for today’s workshop.
@@ -10,11 +11,18 @@ Here are the instructions for today’s workshop.
 */
 
 function App() {
-
+const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   return (
     <>
-      <PokeList />
+      
+      {!selectedPokemon ? 
+      <PokeList selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon}/>
+      :
+      <PokeDetailView selectedPokemon={selectedPokemon} />
+    
+      }
+
     </>
   )
 }
