@@ -1,6 +1,6 @@
 const PokeLiRow = ({eachPokemon}) => {
   return (
-    <li key={eachPokemon.name}>
+    <li>
       {eachPokemon.name}
     </li>
   )
