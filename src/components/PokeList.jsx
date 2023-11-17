@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PokeLiRow from "./PokeLiRow";
+import PokeForm from "./PokeForm";
 
 
 const dummyPokemonList = [
@@ -30,7 +31,7 @@ const PokeList = ({ selectedPokemon, setSelectedPokemon }) => {
   useEffect(() => {
     try {
       const fetchPokemonList = async () => {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=25&limit=25');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon/?offset=20&limit=15');
         const data = await response.json();
         setPokemonList(data.results);
       }
@@ -44,7 +45,7 @@ const PokeList = ({ selectedPokemon, setSelectedPokemon }) => {
   return (
     <>
       <h1>Pokemon List</h1>
-      <ul>
+      <ol>
         {
           pokemonList.map((eachPokemon) => {
             return <PokeLiRow key={eachPokemon.name}
@@ -52,7 +53,8 @@ const PokeList = ({ selectedPokemon, setSelectedPokemon }) => {
               setSelectedPokemon={setSelectedPokemon} />
           })
         }
-      </ul>
+      </ol>
+      <PokeForm setPokemonList={setPokemonList} pokemonList={pokemonList} />
     </>
   )
 }
