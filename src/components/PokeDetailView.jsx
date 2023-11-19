@@ -24,19 +24,21 @@ const PokeDetailView = ({ selectedPokemon, setSelectedPokemon }) => {
 
   return (
     <>
-      <h1>Name: {pokeDetails.name}</h1>
-      <h2>Move: {curMove}</h2>
-      <h5>Base Experience: {pokeDetails.base_experience}</h5>
-      <h5>Weight: {pokeDetails.weight}</h5>
-      <h5>Height: {pokeDetails.height} </h5>
-      <img src={curImageURL} alt="pokemon" width="300px" />
-      <br />
-      <button
-        onClick={() => {
-          setSelectedPokemon(null);
-          setPokeDetails({});
-        }} >
-        Back</button>
+      <section className="pokemon-card">
+        <h1>Name: {pokeDetails.name}</h1>
+        <h2>Move: {curMove}</h2>
+        <h5>Base Experience: {pokeDetails.base_experience}</h5>
+        <h5>Weight: {pokeDetails.weight}</h5>
+        <h5>Height: {pokeDetails.height} </h5>
+        <img src={curImageURL} alt="pokemon" width="300px" />
+        <br />
+        <button
+          onClick={() => {
+            setSelectedPokemon(null);
+            setPokeDetails({});
+          }} >
+          Back</button>
+      </section>
     </>
   )
 }
@@ -47,9 +49,9 @@ export default PokeDetailView;
 //////Pseudo Code/////////
 
 //Fetch details from selected Pokemon and display them here.
-  //import useEffect
-  //fetch pokemon api for specific pokemon
-  //put that in state
+//import useEffect
+//fetch pokemon api for specific pokemon
+//put that in state
 //put details in below
-  //make back button
+//make back button
 //Extra Time? Style this to look like a real Pokemon card with eye-exploding colors.

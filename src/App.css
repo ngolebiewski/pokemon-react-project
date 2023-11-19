@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+.pokemon-card {
+  border: 4px solid black;
+  border-radius: 30px;
+  background-color: yellowgreen;
+  padding: 20px;
+  box-shadow: 10px 10px 8px #888888;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
