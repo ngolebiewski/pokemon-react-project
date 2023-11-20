@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import PokeList from './components/PokeList.jsx'
 import PokeDetailView from './components/PokeDetailView'
+import PokeForm from './components/PokeForm'
 
 /*
 Here are the instructions for today’s workshop.
@@ -10,17 +11,32 @@ Here are the instructions for today’s workshop.
 - Add a form that allows the user to create their own pokemon
 */
 
+
 function App() {
-const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [pokemonList, setPokemonList] = useState([]);
+  {console.log(pokemonList)}
+
 
   return (
     <>
-      
-      {!selectedPokemon ? 
-      <PokeList selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon}/>
-      :
-      <PokeDetailView selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon}/>
-    
+
+      {!selectedPokemon ?
+     
+        <div>
+          <PokeList
+            selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon}
+            pokemonList={pokemonList} setPokemonList={setPokemonList}
+          />
+          <PokeForm 
+            setPokemonList={setPokemonList} pokemonList={pokemonList}
+          />
+        </div>
+        :
+        <PokeDetailView selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} 
+        pokemonList={pokemonList} setPokemonList={setPokemonList}
+        />
+
       }
 
     </>
