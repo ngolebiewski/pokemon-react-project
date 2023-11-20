@@ -1,11 +1,9 @@
 # BLOCK 26 workshop - MORE POKEMON!
---
-## [Check out the deployed Project on Netlify]()
---
-`Here are the instructions for today’s workshop.
+## [Check out the deployed Project on Netlify](https://nicks-pokemon-react-api-app.netlify.app/)
+### Here are the instructions for today’s workshop.
 - Create a React app that retrieves and displays a list of pokemon
 - When you click on a pokemon in the list, it should go to a details page displaying more - information about it (probably want a back button as well)
-- Add a form that allows the user to create their own pokemon`
+- Add a form that allows the user to create their own pokemon*
 ---
 __Notes__
 1.  It took a while to get the API call for the list of pokemon to stop rendering. Rather than move to the App.jsx parent level, I added a bit of logic to skip the API Call by asking, "is there anything in the pokemon list array?" If yes, then skip the fetch.
