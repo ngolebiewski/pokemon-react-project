@@ -3,16 +3,15 @@ import { useState } from "react";
 const PokeForm = ({ setPokemonList, pokemonList }) => {
 
   const [name, setName] = useState(``);
+  const [move, setMove] = useState(``);
+  const [height, setHeight] = useState(``);
+  const [weight, setWeight] = useState(``);
+  const [base_experience, setBase_experience] = useState(``);
+  const [imageUrl, setImageUrl] = useState(``);
   
-  // <h1>Name: {pokeDetails.name}</h1>
-  // <h3>Base Experience: {pokeDetails.base_experience}</h3>
-  // <h4>Weight: {pokeDetails.weight}</h4>
-  // <h5>Height: {pokeDetails.height} </h5>
-  // <img src={curImageURL} alt="pokemon" width="400px" />
 
   return (
     <>
-
       <h1>Add Your Own Pokemon</h1>
 
       <form className="pokemon-card">
@@ -20,24 +19,25 @@ const PokeForm = ({ setPokemonList, pokemonList }) => {
         <input type="text" name="name" id="name" required onChange={(e) => setName(e.target.value)} />
         <br />
         <label htmlFor="move">Move: </label>
-        <input type="text" name="move" id="move" required />
+        <input type="text" name="move" id="move" required onChange={(e) => setMove(e.target.value)} />
         <br />
         <label htmlFor="height">Height: </label>
-        <input type="text" name="height" id="height" required />
+        <input type="text" name="height" id="height" required onChange={(e) => setHeight(e.target.value)} />
         <br />
         <label htmlFor="weight">Weight: </label>
-        <input type="text" name="weight" id="weight" required />
+        <input type="text" name="weight" id="weight" required onChange={(e) => setWeight(e.target.value)} />
         <br />
         <label htmlFor="base_experience">Base Experience: </label>
-        <input type="text" name="base_experience" id="base_experience" required />
+        <input type="text" name="base_experience" id="base_experience" required onChange={(e) => setBase_experience(e.target.value)} />
         <br />
-        <label htmlFor="url">Image URL starting with https:// </label>
-        <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" required />
+        <label htmlFor="imageUrl">Image URL: </label>
+        <input type="imageUrl" name="imageUrl" id="imageUrl" placeholder="https://example.com" pattern="https://.*" onChange={(e) => setImageUrl(e.target.value)} />
         <br />
+        
         <input type="submit" name="submit" id="submit"
           onClick={(e) => {
             e.preventDefault();
-            setPokemonList([...pokemonList, { name, 'createdByHuman':true,  }])
+            setPokemonList([...pokemonList, { name, move, height, weight, base_experience, imageUrl, 'createdByHuman':true, }])
           }}
         />
 

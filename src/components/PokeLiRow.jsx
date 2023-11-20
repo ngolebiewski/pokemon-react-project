@@ -3,7 +3,7 @@ const PokeLiRow = ({ eachPokemon, setSelectedPokemon }) => {
     <li onClick={
       () => {
         setSelectedPokemon(eachPokemon.name);
-        console.log(`you clicked ${eachPokemon.name}`)
+        console.log(`you selected ${eachPokemon.name}`)
       }
     }>
       {eachPokemon.name}
